@@ -57,11 +57,20 @@ def odd():
     yield 3
     print('step3')
     yield 5
+    return 'False'
 
 
 # 但是用for循环调用generator时，发现拿不到generator的return语句的返回值。
 # 如果想要拿到返回值，必须捕获StopIteration错误，返回值包含在StopIteration的value中
+# for循环
+n = odd()
+for item in n:
+    print(item)
 
-
-# 迭代器
-
+while True:
+    try:
+        x = next(n)
+        print("x=%s" % x)
+    except StopIteration as e:
+        print("return=%s" % e.value)
+        break
