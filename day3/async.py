@@ -4,15 +4,6 @@
 # @File : async.py
 # @Software: PyCharm
 
-import requests
-headers ={
-    "User-Agent":"Mozilla/5.0 (Windows NT 10.0; …) Gecko/20100101 Firefox/75.0"
-}
+import os
 
-try:
-    rs=requests.get("https://api.apiopen.top/getJoke?page=1&count=2&type=video ")
-    rs= rs.json()
-    print(rs['result'])
-
-except requests.exceptions as e:
-    print(e['code'])
+print("Process (%s) start..."%os.getpid())
